@@ -1,0 +1,11 @@
+server:
+  port: 8888
+
+security:
+  user:
+    password: password
+zuul:
+  routes:
+    resource:
+      path: /resource/**
+      url: http://localhost:9000
