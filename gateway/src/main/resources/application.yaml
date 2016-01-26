@@ -1,0 +1,16 @@
+server:
+  port: 8888
+
+security:
+  sessions: ALWAYS
+zuul:
+  routes:
+    ui:
+      url: http://localhost:8081
+    admin:
+      url: http://localhost:8082
+#    user:
+#      path: /user/**
+#      url: http://localhost:9999/uaa/user
+    resource:
+      url: http://localhost:9000
