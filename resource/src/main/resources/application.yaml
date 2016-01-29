@@ -1,10 +1,16 @@
 server:
   port: 9000
-  address: 127.0.0.1
+  context-path: /resource
 
 security:
-  sessions: NEVER
-#
-#  oauth2:
-#    resource:
-#      user-info-uri: http://localhost:9999/uaa/user
+  oauth2:
+    resource:
+      jwt:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlWiFyo0kTkg9cikrO9R8ZkBiTRBh4SuA5KbzX/fcfj+MJ0e5uka3L58lYP/U3YZI76uMzB6eOlDnamUmWQLFTuYbKvgZckYV8bID3Nde8Q1iw3JLiUTSMG2YucR+W+y0kaxPlLO1+LJhY1PI62cUjsRMpg/9njcXz4Nr9uPkpfpb6KfxkRtVsec5MnwvzwhLk9zToURGfkgqIPzMXbXl0em3dRZx43vViPh8nsSvG+nb36tG5qFkYBhox7wIeissMiJonPtJMPTafHo52mA5iz6tQCLp1TQXvmWDyMuSa77j0HDhM72EtLgDpfI6GJPFnYFspLH7K/yKhuJj97uTyQIDAQAB
+          -----END PUBLIC KEY-----
+
+logging:
+  level:
+    org.springframework.security: DEBUG

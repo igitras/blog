@@ -4,14 +4,7 @@ server:
 security:
   user:
     password: password
-  sessions: if-required
 
-  oauth2:
-    client:
-      client-id: acme
-      client-secret: acmesecret
-      authorized-grant-types:
-        - authorization_code
-        - refresh_token
-        - password
-      scope: openid
+logging:
+  level:
+    org.springframework.security: DEBUG

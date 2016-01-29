@@ -21,14 +21,20 @@ import java.security.KeyPair;
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2AuthorizationConfiguration extends AuthorizationServerConfigurerAdapter {
+    public static final String KEYSTORE = "igitras.jks";
+    public static final String STORE_PASS = "igitrasStorePass";
+    public static final String ALIAS = "igitrasKey";
+    public static final String ALIAS_PASS = "igitrasPass";
     @Autowired
     private AuthenticationManager authenticationManager;
 
     @Bean
     public JwtAccessTokenConverter jwtAccessTokenConverter() {
         JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+
         KeyPair keyPair = new KeyStoreKeyFactory(
-                new ClassPathResource("keystore.jks"), "foobar".toCharArray()).getKeyPair("test");
+                new ClassPathResource(KEYSTORE), STORE_PASS.toCharArray()).getKeyPair(ALIAS,
+                ALIAS_PASS.toCharArray());
         converter.setKeyPair(keyPair);
         return converter;
     }

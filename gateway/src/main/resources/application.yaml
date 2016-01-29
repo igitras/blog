@@ -2,7 +2,8 @@ server:
   port: 8888
 
 security:
-  sessions: ALWAYS
+  user:
+    password: none
   oauth2:
     client:
       accessTokenUri: http://localhost:9999/uaa/oauth/token
@@ -10,15 +11,28 @@ security:
       clientId: acme
       clientSecret: acmesecret
     resource:
-      userInfoUri: http://localhost:9999/uaa/user
+      jwt:
+        key-value: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlWiFyo0kTkg9cikrO9R8ZkBiTRBh4SuA5KbzX/fcfj+MJ0e5uka3L58lYP/U3YZI76uMzB6eOlDnamUmWQLFTuYbKvgZckYV8bID3Nde8Q1iw3JLiUTSMG2YucR+W+y0kaxPlLO1+LJhY1PI62cUjsRMpg/9njcXz4Nr9uPkpfpb6KfxkRtVsec5MnwvzwhLk9zToURGfkgqIPzMXbXl0em3dRZx43vViPh8nsSvG+nb36tG5qFkYBhox7wIeissMiJonPtJMPTafHo52mA5iz6tQCLp1TQXvmWDyMuSa77j0HDhM72EtLgDpfI6GJPFnYFspLH7K/yKhuJj97uTyQIDAQAB
+          -----END PUBLIC KEY-----
 zuul:
   routes:
     ui:
       url: http://localhost:8081
     admin:
+      path: /admin/**
       url: http://localhost:8082
-#    user:
-#      path: /user/**
-#      url: http://localhost:9999/uaa/user
+    user:
+      path: /user/**
+      url: http://localhost:9999/uaa/user
     resource:
+      path: /resource/**
       url: http://localhost:9000
+
+spring:
+  aop:
+    proxy-target-class: true
+logging:
+  level:
+    org.springframework.security: DEBUG
