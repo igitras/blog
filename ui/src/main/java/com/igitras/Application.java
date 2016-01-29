@@ -7,14 +7,14 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 
 /**
  * @author mason
  */
 
 @SpringBootApplication
-@EnableRedisHttpSession
+@EnableResourceServer
 public class Application {
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
