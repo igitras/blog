@@ -1,6 +1,7 @@
 package com.igitras.security.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Created by mason on 1/25/16.
@@ -17,8 +18,8 @@ public class ResourceController {
 //        return map;
 //    }
 //
-//    @RequestMapping("/login")
-//    public String login() {
-//        return "forward:/";
-//    }
+    @RequestMapping("/login")
+    public String login() {
+        return "forward:/";
+    }
 }

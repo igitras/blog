@@ -19,13 +19,11 @@ security:
 zuul:
   routes:
     ui:
+      path: /ui/**
       url: http://localhost:8081
     admin:
       path: /admin/**
       url: http://localhost:8082
-    user:
-      path: /user/**
-      url: http://localhost:9999/uaa/user
     resource:
       path: /resource/**
       url: http://localhost:9000
