@@ -1,4 +1,4 @@
-package com.igitras.auth.controllers;
+package com.igitras.auth.mvc.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

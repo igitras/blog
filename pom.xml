@@ -17,6 +17,7 @@
 
     <properties>
         <project.java.version>1.8</project.java.version>
+        <maven.compile
         <spring-cloud.version>1.0.4.RELEASE</spring-cloud.version>
         <wro4j.version>1.7.9</wro4j.version>
         <jquery.version>2.1.1</jquery.version>
@@ -30,6 +31,7 @@
         <module>authserver</module>
         <module>admin</module>
         <module>ui</module>
+        <module>common</module>
     </modules>
 
 
