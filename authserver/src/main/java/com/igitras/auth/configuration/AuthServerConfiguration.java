@@ -55,12 +55,13 @@ public class AuthServerConfiguration extends AuthorizationServerConfigurerAdapte
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.withClientDetails(clientDetailService)
-                .and()
-                .withClient("acme")
-                .secret("acmesecret")
-                .authorizedGrantTypes("authorization_code", "refresh_token", "password")
-                .scopes("openid");
+        clients.withClientDetails(clientDetailService);
+//                .and()
+//                .inMemory()
+//                .withClient("acme")
+//                .secret("acmesecret")
+//                .authorizedGrantTypes("authorization_code", "refresh_token", "password")
+//                .scopes("openid");
     }
 
     @Override

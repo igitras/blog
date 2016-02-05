@@ -2,14 +2,28 @@ server:
   port: 9999
   context-path: /uaa
 security:
-  user:
-    password: password
+  basic:
+    enabled: false
 
 logging:
   level:
     org.springframework.security: DEBUG
 
 spring:
+  jpa:
+    generate-ddl: true
+    show-sql: true
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/oauth2?useUnicode=true&characterEncoding=utf8
+    name:
+    username: root
+    password: root
+    max-active: 100
+    min-idle: 8
+    max-idle: 8
+    validation-query: select 1
+    test-on-borrow: true
   redis:
     host: localhost
     port: 6379
@@ -18,8 +32,11 @@ spring:
       max-wait: -1
       max-idle: 8
       min-idle: 0
-    sentinel:
-      master: localhost # Name of the Redis Server
-      nodes: 127.0.0.1:6379  # Comma separated list of host:port
+#    sentinel:
+#      master: localhost # Name of the Redis Server
+#      nodes: 127.0.0.1:6379  # Comma separated list of host:port
     timeout: 0
+  mvc:
+    favicon:
+      enabled: false
 
